@@ -50,3 +50,66 @@ elif o == "B2" or o == "B4" or o == "B6" or o == "B8" or o == "C2" or o == "C7" 
     print("В этом квадрате обитает зеленый попугай")
 elif o == "B5" or o == "C3" or o == "C12":
     print("Этот квадрат пуст, здесь никого нет")
+#Задание 7
+n = int(input("Введите число n: "))
+k = int(input("Введите число k: "))
+if n % k == 0:
+    print("Число n кратно числу k.")
+else:
+    print("Число n не кратно числу k.")
+#Задание 8
+import sys
+def main():
+    try:
+        level = int(input("Введите ваш уровень: "))
+        health = int(input("Введите ваше здоровье: "))
+
+        if level < 5:
+            print("Ваш уровень слишком низкий для выполнения миссии.")
+
+        elif level >= 5:
+            if health > 50:
+                print("Вы готовы к миссии!")
+
+            elif 20 <= health <= 50:
+                print("Ваше здоровье низкое, будьте осторожны.")
+
+            elif health < 20:
+                print("Ваше здоровье слишком низкое для выполнения миссии.")
+
+            else:
+                print("Некорректные данные.")
+
+        else:
+            print("Некорректные данные.")
+
+    except ValueError as err:
+        print(f"Ошибка: {err}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
+#Задание 9
+inventory = ["яблоко", "шариковая ручка"]
+if 'ключ' in inventory and 'фонарь' in inventory:
+    print("Вы можете пройти через дверь.")
+elif 'ключ' not in inventory:
+    print("У вас нет ключа, вы не можете открыть дверь.")
+elif 'фонарь' not in inventory:
+    print("У вас нет фонаря, слишком темно, чтобы пройти.")
+else:
+    print("У вас нет ни ключа, ни фонаря, вы не можете пройти через дверь.")
+#Задание 10
+king = "Enemies are coming! Are the archers ready?"
+warrior = "For the Alliance!"
+magician = "The spell is ready."
+def check_ending(phrase):
+    if phrase[-1] == '?' or phrase[-2:] == '?!' or phrase[-1] == '!':
+        return True
+    else:
+        return False
+
+print("King:", check_ending(king))  # True
+print("Warrior:", check_ending(warrior))  # False
+print("Magician:", check_ending(magician))  # False
