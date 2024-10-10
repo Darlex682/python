@@ -1,0 +1,52 @@
+#задание 1
+age = int(input("Ваш возраст: "))
+if age < 18:
+    print("Вы несовершеннолетний")
+elif 18 < age < 65:
+    print("Вы трудоспособный человек")
+elif age > 65:
+    print("Вы пенсионер")
+#задание 2
+x = int(input("Стоимость покупки: "))
+if x < 1000:
+    print("Скидка не предоставляется")
+elif 1000 < x < 5000:
+    print("Скидка 5%")
+elif x > 5000:
+    print("Скидка 10%")
+#задание 3
+print("Укажите 2 числа: ")
+a = int(input())
+b = int(input())
+c = int(input())
+if c == 1:
+    print(a+b)
+elif c == 2:
+    print(a-b)
+elif c == 3:
+    print(a*b)
+elif c == 4:
+    print(a/b)
+elif c > 4:
+    print("Неверная операция")
+#задание 4
+d = int(input())
+if d % 10 == 2 or d % 10 == 6:
+    print("TRUE")
+else:
+    print("FALSE")
+#задание 5
+password = input()
+f = input()
+if f == password:
+    print("Доступ разрешен")
+else:
+    print("Неверный пароль")
+#задание 6
+o = input("Введите координаты квадрата: ")
+if o == "B1" or o == "B3" or o == "B7" or o == "C1" or o == "C4" or o == "C5" or o == "C6" or o == "C8" or o == "C9":
+    print("В этом квадрате обитает синий попугай")
+elif o == "B2" or o == "B4" or o == "B6" or o == "B8" or o == "C2" or o == "C7" or o == "C10" or o == "C11":
+    print("В этом квадрате обитает зеленый попугай")
+elif o == "B5" or o == "C3" or o == "C12":
+    print("Этот квадрат пуст, здесь никого нет")
