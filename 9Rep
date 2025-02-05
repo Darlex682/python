@@ -1,0 +1,71 @@
+class Room:
+    def __init__(self, name, size=0):
+        self.name = name
+        self.items = []
+        self.size = size
+        self.locked = False
+        self.theme = None
+
+    def add_item(self, *items):
+        if not self.locked:
+            self.items.extend(items)
+        else:
+            print(f"Комната {self.name} закрыта для изменений.")
+
+    def print_items(self):
+        print(f"Все предметы в комнате {self.name}: {', '.join(self.items) if self.items else 'Нет предметов'}")
+
+    def del_item(self, item):
+        if not self.locked:
+            if item in self.items:
+                self.items.remove(item)
+            else:
+                print(f"Предмет '{item}' не найден в комнате {self.name}.")
+        else:
+            print(f"Комната {self.name} закрыта для изменений.")
+
+    def find_item(self, item):
+        return item in self.items
+        
+    def rename_room(self, new_name):
+        self.name = new_name
+
+    def describe_room(self):
+        print(f"Комната: {self.name}, Площадь: {self.size} м², Тема: {self.theme or 'Не задана'}")
+        self.print_items()
+
+    def lock_room(self):
+        self.locked = True
+
+    def unlock_room(self):
+        self.locked = False
+
+    def is_locked(self):
+        return self.locked
+
+    def set_theme(self, theme):
+        self.theme = theme
+
+    def show_theme(self):
+        print(f"Тема комнаты {self.name}: {self.theme if self.theme else 'Не задана'}")
+
+
+# Тестирование
+room1 = Room("Кухня", size=15)
+room1.add_item("Холодильник", "Стул", "Стол")
+room1.print_items()
+
+room2 = Room("Гостиная", size=25)
+room2.add_item("Диван", "Телевизор")
+
+room1.del_item("Стул")
+room1.print_items()
+
+room1.set_theme("Современная")
+room1.show_theme()
+
+room1.lock_room()
+room1.add_item("Микроволновка")  # Должно вывести, что комната закрыта
+
+room1.unlock_room()
+room1.describe_room()
