@@ -1,3 +1,41 @@
+#Задание 1
+class Create_Personage:
+    def __init__(self, name_pers, class_pers, hp_pers, damage_pers):
+        self.name_pers = name_pers
+        self.class_pers = class_pers
+        self.hp_pers = hp_pers
+        self.damage_pers = damage_pers
+
+    def print_info(self):
+        print(f"Имя: {self.name_pers}")
+        print(f"Класс: {self.class_pers}")
+        print(f"Жизни: {self.hp_pers}")
+        print(f"Урон: {self.damage_pers}")
+
+    def go_on_a_trip(self):
+        print(f"\nПерсонаж {self.name_pers} отправился в путешествие и пока недоступен.")
+
+    def go_back(self):
+        print(f"\nПерсонаж {self.name_pers} возвращается назад.")
+
+    def start_training(self):
+        print(f"\nПерсонаж {self.name_pers} начал тренировку. Некоторое время он не будет доступен, однако станет сильнее!")
+        self.hp_pers += 3
+        self.damage_pers += 5
+
+    def start_the_battle(self):
+        print(f"\nПерсонаж {self.name_pers} хочет начать сражаться!")
+        print(f"Его показатели: Жизни: {self.hp_pers} и урон: {self.damage_pers}")
+
+
+pers_1 = Create_Personage("Игорь", "Боец", 99, 15)
+pers_1.print_info()      
+pers_1.go_on_a_trip()    
+pers_1.go_back()         
+pers_1.start_training()  
+pers_1.print_info()      
+pers_1.start_the_battle()
+#Задание 2
 class Room:
     def __init__(self, name, size=0):
         self.name = name
