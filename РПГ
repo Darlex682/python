@@ -1,0 +1,81 @@
+class Personage:
+    def __init__(self, name, hero_class, lvl, hp, weapon, damage):
+        """
+        Базовый класс персонажа
+        """
+        self.name = name
+        self.hero_class = hero_class
+        self.lvl = lvl
+        self.hp = hp
+        self.weapon = weapon
+        self.damage = damage
+
+    def info_pers(self):
+        """Выводит информацию о персонаже"""
+        print(
+            f"Name: {self.name} | Class: {self.hero_class}\n"
+            f"Level: {self.lvl} | HP: {self.hp}\n"
+            f"Weapon: {self.weapon} | Damage: {self.damage}"
+        )
+
+class Warrior(Personage):
+    def __init__(self, name, lvl, hp, weapon, damage, armor):
+        super().__init__(name, "Warrior", lvl, hp, weapon, damage)
+        self.armor = armor
+
+    def info_pers(self):
+        super().info_pers()
+        print(f"Armor: {self.armor}\n{'-'*30}")
+
+class Mage(Personage):
+    def __init__(self, name, lvl, hp, weapon, damage, mana):
+        super().__init__(name, "Mage", lvl, hp, weapon, damage)
+        self.mana = mana
+
+    def info_pers(self):
+        super().info_pers()
+        print(f"Mana: {self.mana}\n{'-'*30}")
+
+class Archer(Personage):
+    def __init__(self, name, lvl, hp, weapon, damage, accuracy):
+        super().__init__(name, "Archer", lvl, hp, weapon, damage)
+        self.accuracy = accuracy
+
+    def info_pers(self):
+        super().info_pers()
+        print(f"Accuracy: {self.accuracy}%\n{'-'*30}")
+
+class Squad:
+    def __init__(self, name):
+        self.squad_name = name
+        self.members = []
+
+    def add_member(self, character):
+        """Добавляет персонажа в отряд"""
+        self.members.append(character)
+        print(f"{character.name} присоединился к отряду '{self.squad_name}'!")
+
+    def show_squad(self):
+        """Показывает состав отряда"""
+        print(f"\nСостав отряда '{self.squad_name}':")
+        for member in self.members:
+            member.info_pers()
+
+    def total_power(self):
+        """Считает общую силу отряда"""
+        return sum(member.damage for member in self.members)
+
+# Создаем персонажей
+warrior = Warrior("Громовержец", 25, 200, "Двуручный меч", 45, 60)
+mage = Mage("Морфей", 30, 120, "Посох вечности", 70, 150)
+archer = Archer("Соколиный Глаз", 28, 150, "Составной лук", 55, 85)
+
+# Создаем отряд и добавляем персонажей
+my_squad = Squad("Неуязвимые")
+my_squad.add_member(warrior)
+my_squad.add_member(mage)
+my_squad.add_member(archer)
+
+# Показываем информацию об отряде
+my_squad.show_squad()
+print(f"\nОбщая сила отряда: {my_squad.total_power()} урона в раунд")
